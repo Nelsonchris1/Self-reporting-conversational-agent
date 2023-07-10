@@ -1,50 +1,60 @@
 import openai
 from dotenv import load_dotenv, find_dotenv
 import os
+import psycopg2
+import streamlit as st
+from datetime import datetime
 
 load_dotenv(find_dotenv())
 
 openai.api_key = os.getenv("OPEN_API2", "NONE")
 
-Initial_content = ""
 
-def initial_message() -> list:
+def initial_message():
     messages = [
         {"role": "system",
-            "content": f"{Initial_content}"},
+            "content": """You are a mental health human bot whose purpose is to act as a 
+                         companion to people and maintain a conversationa that helps to collect enough data. 
+                         Maintain a converstaion that ecourages people to speak about what they go through.
+                         You can tell short stories or sceneriors to make it very conversatinanl. 
+                         Just make sure to keep the conversation unless the user explicitely says its over.  
+                         Dont keep asking questions everytime. 
+                         Make it as converssational as possible. Make them feel comfortable for speaking with you. 
+                         Be as human as you can"""},
             {"role": "user", "content": "Can i talk to you?"},
             {"role": "assistant", "content": "Hi, I am here to to listen to you. Please speak"}
     ]
     return messages
 
-def get_response(messages:list, model:str="gpt-3.5-turbo") -> str:
-    """
-    Get the response from the language model for a given conversation.
-
-    Args:
-        messages (list): A list of messages representing the conversation.
-        model (str, optional): The model to use for generating the response. Defaults to "gpt-3.5-turbo".
-
-    Returns:
-        str: The generated response from the language model.
-    """
-    print("model: ", model)
+@st.cache_data()
+def get_response(messages, model="gpt-3.5-turbo"):
     response = openai.ChatCompletion.create(model=model,
                                      messages=messages,
                                      )
     return response['choices'][0]['message']['content']
 
-def update_message(messages:list, role:str, content:str) -> list:
-    """
-    Add a new message to the conversation.
-
-    Args:
-        messages (list): A list of messages representing the conversation.
-        role (str): The role of the message (e.g., "user", "assistant").
-        content (str): The content of the message.
-
-    Returns:
-        list: The updated list of messages.
-    """
+def update_message(messages, role, content):
     messages.append({"role": role, "content": content})
     return messages
+
+@st.cache_resource()
+def database_conn():
+    try: 
+        conn = psycopg2.connect(**st.secrets["postgres"])
+        return conn
+    except Exception as e:
+        print(e)
+    
+
+
+def run_query(conn, message, prompt_class):
+    with conn.cursor() as cur:
+        conn.rollback()
+        cur.execute("INSERT INTO user_chat (messages, prompt_class) VALUES (%s, %s)",
+                        (message, prompt_class))
+        conn.commit()   
+        
+def date_time():
+    date = datetime.now()
+    formatted_date = date.strftime("%Y-%m-%d %H:%M:%S")
+    return formatted_date
