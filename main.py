@@ -48,34 +48,35 @@ def main():
     st.markdown(
         """
             <div id="quotes">
-          <h2>Reflections</h2>
-          <div class="quote">
-              <blockquote>"What mental health needs is more sunlight, more candor and more unashamed conversation"</blockquote>
-              <cite>- Glenn Close </cite>
+            <h2>Reflections</h2>
+            <div class="quote">
+                <blockquote>"What mental health needs is more sunlight, more candor and more unashamed conversation"</blockquote>
+                <cite>- Glenn Close </cite>
+            </div>
+            <div class="quote">
+                <blockquote>"The greatest glory in living lies not in never falling, but in rising every time we fall"</blockquote>
+                <cite>- Nelson Mandela </cite>
           </div>
-          <div class="quote">
-              <blockquote>"The greatest glory in living lies not in never falling, but in rising every time we fall"</blockquote>
-              <cite>- Nelson Mandela </cite>
           </div>
         """, unsafe_allow_html=True
     )
 
     st.markdown(
         """
-            <div id="stories">
-      <div class="story">
-          <h3>It's Assessible.</h3>
-          <p>All therapists are licensed, accredited professionals. BetterHelp allows you to connect with them in a safe and convenient online environment.</p>
-      </div>
-      <div class="story">
-          <h3>It's Affordable.</h3>
-          <p>Pay a low flat fee for both live sessions as well as messaging with your therapist. Therapy doesn't have to be expensive.</p>
-      </div>
-      <div class="story">
-          <h3>It's Effective.</h3>
-          <p>Thousands of people have benefitted from therapy (just check out their reviews!) With BetterHelp, you can switch therapists at any point if you don't feel you are getting enough benefit.</p>
-      </div>
-    </div>
+        <div id="stories">
+            <div class="story">
+                <h3>It's Assessible.</h3>
+                <p>All therapists are licensed, accredited professionals. BetterHelp allows you to connect with them in a safe and convenient online environment.</p>
+            </div>
+            <div class="story">
+                <h3>It's Affordable.</h3>
+                <p>Pay a low flat fee for both live sessions as well as messaging with your therapist. Therapy doesn't have to be expensive.</p>
+            </div>
+            <div class="story">
+                <h3>It's Effective.</h3>
+                <p>Thousands of people have benefitted from therapy (just check out their reviews!) With BetterHelp, you can switch therapists at any point if you don't feel you are getting enough benefit.</p>
+            </div>
+        </div>
         """, unsafe_allow_html=True
     )
 
