@@ -1,0 +1,300 @@
+{
+  "Description" : [
+    {
+      "name" : "OBJECTID", 
+      "type" : "esriFieldTypeOID", 
+      "alias" : "OBJECTID", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "AreaID", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "AreaID", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "RegionID", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "RegionID", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Area", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Area", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 2048, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Year", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "Year", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Q1", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "Q1", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Q2", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "Q2", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Q3", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "Q3", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Q4", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "Q4", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }
+  ], 
+  "features" : [
+    {
+      "attributes" : {
+        "OBJECTID" : 1, 
+        "AreaID" : 16, 
+        "RegionID" : 21, 
+        "Area" : "Sligo Leitrim West Cavan", 
+        "Year" : 2022, 
+        "Q1" : 20, 
+        "Q2" : 14, 
+        "Q3" : 11, 
+        "Q4" : 8
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 2, 
+        "AreaID" : 14, 
+        "RegionID" : 21, 
+        "Area" : "The Midwest", 
+        "Year" : 2022, 
+        "Q1" : 51, 
+        "Q2" : 38, 
+        "Q3" : 47, 
+        "Q4" : 45
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 3, 
+        "AreaID" : 13, 
+        "RegionID" : 21, 
+        "Area" : "Mayo", 
+        "Year" : 2022, 
+        "Q1" : 25, 
+        "Q2" : 20, 
+        "Q3" : 14, 
+        "Q4" : 5
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 4, 
+        "AreaID" : 12, 
+        "RegionID" : 19, 
+        "Area" : "Louth Meath", 
+        "Year" : 2022, 
+        "Q1" : 13, 
+        "Q2" : 15, 
+        "Q3" : 17, 
+        "Q4" : 26
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 5, 
+        "AreaID" : 11, 
+        "RegionID" : 20, 
+        "Area" : "Kerry", 
+        "Year" : 2022, 
+        "Q1" : 12, 
+        "Q2" : 10, 
+        "Q3" : 5, 
+        "Q4" : 10
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 6, 
+        "AreaID" : 10, 
+        "RegionID" : 21, 
+        "Area" : "Galway Roscommon", 
+        "Year" : 2022, 
+        "Q1" : 35, 
+        "Q2" : 13, 
+        "Q3" : 11, 
+        "Q4" : 14
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 7, 
+        "AreaID" : 9, 
+        "RegionID" : 18, 
+        "Area" : "Dublin South West Kildare West Wicklow", 
+        "Year" : 2022, 
+        "Q1" : 46, 
+        "Q2" : 41, 
+        "Q3" : 34, 
+        "Q4" : 25
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 8, 
+        "AreaID" : 8, 
+        "RegionID" : 18, 
+        "Area" : "Dublin South East Wicklow", 
+        "Year" : 2022, 
+        "Q1" : 31, 
+        "Q2" : 20, 
+        "Q3" : 27, 
+        "Q4" : 20
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 9, 
+        "AreaID" : 7, 
+        "RegionID" : 18, 
+        "Area" : "Dublin South Central", 
+        "Year" : 2022, 
+        "Q1" : 40, 
+        "Q2" : 41, 
+        "Q3" : 27, 
+        "Q4" : 29
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 10, 
+        "AreaID" : 5, 
+        "RegionID" : 19, 
+        "Area" : "Dublin North", 
+        "Year" : 2022, 
+        "Q1" : 32, 
+        "Q2" : 37, 
+        "Q3" : 48, 
+        "Q4" : 42
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 11, 
+        "AreaID" : 6, 
+        "RegionID" : 19, 
+        "Area" : "Dublin City North", 
+        "Year" : 2022, 
+        "Q1" : 53, 
+        "Q2" : 39, 
+        "Q3" : 49, 
+        "Q4" : 59
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 12, 
+        "AreaID" : 4, 
+        "RegionID" : 21, 
+        "Area" : "Donegal", 
+        "Year" : 2022, 
+        "Q1" : 21, 
+        "Q2" : 19, 
+        "Q3" : 8, 
+        "Q4" : 17
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 13, 
+        "AreaID" : 3, 
+        "RegionID" : 20, 
+        "Area" : "Cork", 
+        "Year" : 2022, 
+        "Q1" : 38, 
+        "Q2" : 45, 
+        "Q3" : 67, 
+        "Q4" : 68
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 14, 
+        "AreaID" : 2, 
+        "RegionID" : 19, 
+        "Area" : "Cavan Monaghan", 
+        "Year" : 2022, 
+        "Q1" : 31, 
+        "Q2" : 21, 
+        "Q3" : 23, 
+        "Q4" : 21
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 15, 
+        "AreaID" : 1, 
+        "RegionID" : 20, 
+        "Area" : "Carlow Kilkenny South Tipperary", 
+        "Year" : 2022, 
+        "Q1" : 54, 
+        "Q2" : 47, 
+        "Q3" : 23, 
+        "Q4" : 23
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 16, 
+        "AreaID" : 17, 
+        "RegionID" : 20, 
+        "Area" : "Waterford Wexford", 
+        "Year" : 2022, 
+        "Q1" : 34, 
+        "Q2" : 29, 
+        "Q3" : 24, 
+        "Q4" : 25
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 17, 
+        "AreaID" : 15, 
+        "RegionID" : 18, 
+        "Area" : "The Midlands", 
+        "Year" : 2022, 
+        "Q1" : 46, 
+        "Q2" : 36, 
+        "Q3" : 46, 
+        "Q4" : 42
+      }
+    }
+  ]
+}
