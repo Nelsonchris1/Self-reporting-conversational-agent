@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as com
 from streamlit_extras.switch_page_button import switch_page
-import base64 
+
 
 def main():
     st.set_page_config(page_title="Streamlit Web App", initial_sidebar_state="collapsed")

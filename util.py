@@ -1,11 +1,8 @@
 import openai
-from dotenv import load_dotenv, find_dotenv
 import os
 import psycopg2
 import streamlit as st
 from datetime import datetime
-
-load_dotenv(find_dotenv())
 
 # openai.api_key = os.getenv("OPEN_API2", "NONE")
 

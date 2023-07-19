@@ -1,13 +1,10 @@
 import streamlit as st
 import streamlit.components.v1 as com
 from streamlit_chat import message
-from bokeh.models import CustomJS
-from streamlit_extras.colored_header import colored_header
-from bokeh.models.widgets import Button
-from streamlit_bokeh_events import streamlit_bokeh_events
+# from streamlit_extras.colored_header import colored_header
+# from bokeh.models.widgets import Button
 import openai
 from streamlit_extras.switch_page_button import switch_page
-from dotenv import load_dotenv, find_dotenv
 import datetime
 import os
 import sys
@@ -15,7 +12,7 @@ sys.path.append("..")
 from util import initial_message, get_response, update_message, database_conn, run_query, date_time
 
 
-load_dotenv(find_dotenv())
+
 
 st.set_page_config(page_title="Streamlit Web App", initial_sidebar_state="collapsed", layout="wide")
 st.title("Lets talk ")
