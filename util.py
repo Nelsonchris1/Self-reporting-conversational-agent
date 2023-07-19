@@ -7,7 +7,9 @@ from datetime import datetime
 
 load_dotenv(find_dotenv())
 
-openai.api_key = os.getenv("OPEN_API2", "NONE")
+# openai.api_key = os.getenv("OPEN_API2", "NONE")
+
+openai.api_key = st.secrets["openai"]["OPEN_API2"]
 
 
 def initial_message():
