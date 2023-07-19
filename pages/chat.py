@@ -34,13 +34,20 @@ response_container = st.container()
 input_container = st.container()
 
 
+if "something" not in st.session_state:
+    st.session_state.something = ''
+
+
+def submit():
+    st.session_state.something = st.session_state.widget
+    st.session_state.widget = ''
 
 
 #User input
 # Function for taking user provided prompt as input
 def get_text():
-    input_text = st.text_input("You: ", "", key="input")
-    return input_text
+    input_text = st.text_input("You: ", "", key="widget", on_change=submit)
+    return st.session_state.something
     
 
 user_input = get_text()
