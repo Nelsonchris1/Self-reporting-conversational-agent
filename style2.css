@@ -23,25 +23,30 @@ body {
     width: 90vh;
 } */
 
-.hero {
+/* .hero {
     height: 50vh;
-    /* background-color: #325343; */
-    width: 90vh;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-  }
+  } */
+/* div.css-19rxjzo.e1ewe7hr10{
 
-/* .content-container {
+} */
+
+.hero{
+    text-align: center;
+}
+.content-container {
     height: auto;
     margin: auto;
     display: flex;
-    flex-direction: column;x
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 50%;
-} */
+    width: 100%;
+}
 
 .app-name {
     color: #c2a12d
@@ -66,45 +71,16 @@ button {
     cursor: pointer;
 }
 
-#quotes{
-    position: relative;
-    padding: 150px;
-    /* background-color: #325343; */
+div.row-widget.stButton{
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.image-overlay{
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-}
-
-.image-overlay img{
-    width: 50%;
-    height: auto;
-}
-
-#stories {
-    display: flex;
-    justify-content: space-between;
-    /* background-color: #f2e0c7; */
-    padding: 100px;
-}
-
-.story {
-    flex-basis: 23%;
-    /* background-color: #f2e0c7; */
-    padding: 20px;
-    margin-bottom: 10px;
-}
-
-.story h3 {
-    font-size: 24px;
-    margin: 0;
-}
-
-.story p {
-    margin-top: 10px;
+div.css-19rxjzo.e1ewe7hr10{
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -116,13 +92,32 @@ div.stButton > button:first-child {
     color: #325343;
     border-radius:10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;}
+    transition: background-color 0.3s ease;
+}
+
+
+
+#quotes{
+    position: relative;
+    padding: 50px;
+    text-align: center;
+
+}
 
 .quote {
     margin-bottom: 20px;
 }
 
-.quote blockquote {
+#quotes h2{
+    color: #c2a12d;
+}
+
+/* .quote blockquote {
+    font-size: 20px;
+    margin: 0;
+} */
+
+.quote p {
     font-size: 20px;
     margin: 0;
 }
@@ -133,9 +128,33 @@ div.stButton > button:first-child {
     display: block;
 }
 
+#stories {
+    text-align: center;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* background-color: #f2e0c7; */
+    padding: 100px;
+}
 
+/* .story {
+    flex-basis: 23%;
+    padding: 20px;
+    margin-bottom: 10px;
+} */
 
 .story h3 {
+    font-size: 24px;
+    color: #c2a12d;
+    margin: 0;
+}
+
+.story p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.story h3 {
+
     font-size: 24px;
     margin: 0;
 }
@@ -150,8 +169,3 @@ footer {
     text-align: center;
     padding: 20px;
 }
-
-
-
-
-

@@ -4,8 +4,16 @@ from streamlit_extras.switch_page_button import switch_page
 
 
 def main():
-    st.set_page_config(page_title="Streamlit Web App", initial_sidebar_state="collapsed")
-    st.markdown( """ <style> [data-testid="collapsedControl"] { display: none } </style> """, 
+    
+    st.set_page_config(page_title="Streamlit Web App", initial_sidebar_state="collapsed", layout="wide")
+    st.markdown("""
+       
+        """,
+        unsafe_allow_html=True)
+    st.markdown( """  <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style> [data-testid="collapsedControl"] { display: none } </style>
+                  </head> """, 
                 unsafe_allow_html=True)
     
 
@@ -42,7 +50,7 @@ def main():
     with col3:
         center_button = st.button('Get started')
     if center_button:
-        switch_page("trial")
+        switch_page("chat")
 
 
     st.markdown(
@@ -50,11 +58,11 @@ def main():
             <div id="quotes">
             <h2>Reflections</h2>
             <div class="quote">
-                <blockquote>"What mental health needs is more sunlight, more candor and more unashamed conversation"</blockquote>
+                <p>"What mental health needs is more sunlight, more candor and more unashamed conversation"</blockquote>
                 <cite>- Glenn Close </cite>
             </div>
             <div class="quote">
-                <blockquote>"The greatest glory in living lies not in never falling, but in rising every time we fall"</blockquote>
+                <p>"The greatest glory in living lies not in never falling, but in rising every time we fall"</blockquote>
                 <cite>- Nelson Mandela </cite>
           </div>
           </div>
