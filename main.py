@@ -82,3 +82,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Things to add next is to test the different prompts, and also start writing. 
