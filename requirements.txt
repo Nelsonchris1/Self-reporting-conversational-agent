@@ -3,3 +3,4 @@ streamlit_chat
 openai==0.27.8
 streamlit_extras
 psycopg2-binary
+shortuuid

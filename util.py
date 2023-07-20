@@ -64,12 +64,12 @@ def database_conn():
     
 
 
-def run_query(conn, message, prompt_class):
+def run_query(conn, chat_id, message, prompt_class):
     with conn.cursor() as cur:
         conn.rollback()
-        cur.execute("INSERT INTO user_chat (messages, prompt_class) VALUES (%s, %s)",
-                        (message, prompt_class))
-        conn.commit()   
+        cur.execute("INSERT INTO user_chat (chat_id, messages, prompt_class) VALUES (%s, %s, %s)",
+                        (chat_id, message, prompt_class))
+        conn.commit() 
         
 def date_time():
     date = datetime.now()

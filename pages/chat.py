@@ -10,6 +10,7 @@ import os
 import sys
 sys.path.append("..")
 from util import initial_message, get_response, update_message, database_conn, run_query, date_time
+import shortuuid
 
 
 
@@ -50,17 +51,21 @@ def get_text():
     return st.session_state.something
     
 
+
 user_input = get_text()
 
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = initial_message()
+
+if "session_id" not in st.session_state:
+    st.session_state.session_id = shortuuid.uuid()
     
 # # ## Applying the user input box
 with input_container:  
     if user_input:
         date = date_time()
-        run_query(conn=con, message=user_input, prompt_class='Prompt_1')
+        run_query(conn=con, chat_id = st.session_state.session_id, message=user_input, prompt_class="prompt_class 1")
         messages = st.session_state['messages']
         messages = update_message(messages=messages, role="user", content=user_input)
         response = get_response(messages=messages)
