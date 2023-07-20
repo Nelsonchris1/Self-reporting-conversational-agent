@@ -37,7 +37,7 @@ prompt_class = {
 def initial_message():
     messages = [
         {"role": "system",
-            "content": prompt_class['prompt_class 4']},
+            "content": prompt_class['prompt_class 2']},
             {"role": "user", "content": "Can i talk to you?"},
             {"role": "assistant", "content": "Hi, I am here to to listen to you. Please speak"}
     ]
@@ -64,13 +64,20 @@ def database_conn():
     
 
 
-def run_query(conn, chat_id, message, prompt_class):
+def run_user_query(conn, chat_id, message, prompt_class):
     with conn.cursor() as cur:
         conn.rollback()
         cur.execute("INSERT INTO user_chat (chat_id, messages, prompt_class) VALUES (%s, %s, %s)",
                         (chat_id, message, prompt_class))
-        conn.commit() 
+        conn.commit()
         
+def run_summary_query(conn, chat_id, summary):
+    with conn.cursor() as cur:
+        conn.rollback()
+        cur.execute("INSERT INTO chat_summary (chat_id, summary) VALUES (%s, %s)",
+                        (chat_id, summary))
+        conn.commit()
+
 def date_time():
     date = datetime.now()
     formatted_date = date.strftime("%Y-%m-%d %H:%M:%S")

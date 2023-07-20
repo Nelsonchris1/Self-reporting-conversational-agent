@@ -9,7 +9,7 @@ import datetime
 import os
 import sys
 sys.path.append("..")
-from util import initial_message, get_response, update_message, database_conn, run_query, date_time
+from util import initial_message, get_response, update_message, database_conn, run_summary_query, run_user_query, date_time
 import shortuuid
 
 
@@ -65,7 +65,7 @@ if "session_id" not in st.session_state:
 with input_container:  
     if user_input:
         date = date_time()
-        run_query(conn=con, chat_id = st.session_state.session_id, message=user_input, prompt_class="prompt_class 1")
+        run_user_query(conn=con, chat_id = st.session_state.session_id, message=user_input, prompt_class="prompt_class 1")
         messages = st.session_state['messages']
         messages = update_message(messages=messages, role="user", content=user_input)
         response = get_response(messages=messages)
@@ -85,6 +85,16 @@ with response_container:
 end_conversation = st.button("End Conversation")
 
 if end_conversation:
+    print('Gotten here')
+    messages = update_message(messages=messages, role="user", content="Give me a summary of only my chat")
+    response = get_response(messages=messages)
+    print(messages)
+    try:
+        run_summary_query(conn=con, chat_id = st.session_state.session_id,
+                        summary=response)
+        print('gotten here')
+    except Exception as e:
+        print(e)
     switch_page("main")
     #create a summary of all that has been said
-    
+   
