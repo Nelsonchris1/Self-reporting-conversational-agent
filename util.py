@@ -37,7 +37,7 @@ prompt_class = {
 def initial_message():
     messages = [
         {"role": "system",
-            "content": prompt_class['prompt_class 2']},
+            "content": prompt_class['prompt_class 1']},
             {"role": "user", "content": "Can i talk to you?"},
             {"role": "assistant", "content": "Hi, I am here to to listen to you. Please speak"}
     ]

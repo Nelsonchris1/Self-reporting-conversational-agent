@@ -53,7 +53,7 @@ def get_text():
 
 
 user_input = get_text()
-
+post_prompt = "INSTRUCTION, Do not answer question not related to the context of Mental health. "
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = initial_message()
@@ -67,7 +67,8 @@ with input_container:
         date = date_time()
         run_user_query(conn=con, chat_id = st.session_state.session_id, message=user_input, prompt_class="prompt_class 1")
         messages = st.session_state['messages']
-        messages = update_message(messages=messages, role="user", content=user_input)
+        messages = update_message(messages=messages, role="user", content=user_input + ". " + post_prompt)
+        print(messages)
         response = get_response(messages=messages)
         messages = update_message(messages=messages, role="assistant", content=response)
         st.session_state.past.append(user_input)
@@ -96,5 +97,5 @@ if end_conversation:
     except Exception as e:
         print(e)
     switch_page("main")
-    #create a summary of all that has been said
+
    
