@@ -86,7 +86,7 @@ def main():
             </div>
             <div class="story">
                 <h3>It's Annonymous.</h3>
-                <p>We wont ask for your name, location, age e.t.c . We do not require these information to listen to you/p>
+                <p>We wont ask for your name, location, age e.t.c . We do not require these information to listen to you</p>
             </div>
         </div>
         """, unsafe_allow_html=True
