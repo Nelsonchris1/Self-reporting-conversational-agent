@@ -1,17 +1,13 @@
 import streamlit as st
 import streamlit.components.v1 as com
 from streamlit_chat import message
-# from streamlit_extras.colored_header import colored_header
-# from bokeh.models.widgets import Button
 import openai
 from streamlit_extras.switch_page_button import switch_page
-import datetime
-import os
 import sys
 sys.path.append("..")
 from util import initial_message, get_response, update_message, database_conn, run_summary_query, run_user_query, date_time
 import shortuuid
-
+import webbrowser
 
 
 
@@ -85,6 +81,11 @@ with response_container:
 
 end_conversation = st.button("End Conversation")
 
+prompt_link_1 = "https://docs.google.com/forms/d/e/1FAIpQLSejKgCKHPp2Bnt1pgbXh4KZZT8gA3T1WTHIql0n32ROF2Pe7w/viewform"
+prompt_link_2 = "https://docs.google.com/forms/d/e/1FAIpQLScfnIDC9stkHDXjOxkwktyjsy-keBoLIfrpZRZJSTBUaX5zqg/viewform"
+prompt_link_3 = "https://docs.google.com/forms/d/e/1FAIpQLSeOjYWjcooycleK_vOArZOk9L-F_9LoVd1OFSlnA2d9XbjZEw/viewform"
+
+
 if end_conversation:
     print('Gotten here')
     messages = update_message(messages=messages, role="user", content="Give me a summary of only my chat")
@@ -94,8 +95,10 @@ if end_conversation:
         run_summary_query(conn=con, chat_id = st.session_state.session_id,
                         summary=response)
         print('gotten here')
+    
     except Exception as e:
         print(e)
+    webbrowser.open_new_tab(prompt_link_1)
     switch_page("main")
 
    

@@ -57,6 +57,14 @@ body {
     font-weight: 700;
 }
 
+.hero h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #c2a12d;
+}
+
+
+
 .hero p {
     font-size: 24px;
     margin-top: 20px;

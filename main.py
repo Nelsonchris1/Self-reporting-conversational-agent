@@ -30,6 +30,16 @@ def main():
             <div class="content-container">
                 <h1>Welcome to the <span class="app-name">MentBot</span></h1>
                 <p>Here to help you navigate your mental well-being</p>
+                <p></p>
+                <p></p>
+                <h2> IMPORTANT MESSAGE! </h2>
+                <i>"We'd like to inform you that chats are saved to our database to assist Mental Health bodies in analyzing data and understanding how to help people better. 
+                If you click 'Get Started,' your data will be saved. Please do not provide personal information(Name, Age, location), as it's not required and wont be asked".
+                </i>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
             </div>
         </div>
         """, unsafe_allow_html=True
