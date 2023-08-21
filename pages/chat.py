@@ -5,9 +5,10 @@ import openai
 from streamlit_extras.switch_page_button import switch_page
 import sys
 sys.path.append("..")
-from util import initial_message, get_response, update_message, database_conn, run_summary_query, run_user_query, date_time
+from util import initial_message, get_response, update_message, database_conn, run_summary_query, run_user_query, date_time, insert_session
 import shortuuid
 import webbrowser
+import time
 
 
 
@@ -16,10 +17,14 @@ st.title("Lets talk ")
 
 con = database_conn()
 
+if 'start_time' not in st.session_state:
+    st.session_state['start_time'] = time.time()
+
+start_time = st.session_state['start_time']
 
 
 if 'past' not in st.session_state:
-    st.session_state['past'] = ["Here you goooo"]
+    st.session_state['past'] = [" "]
     
 if 'generated' not in st.session_state:
     st.session_state['generated'] = ["Hi and welcome here "]
@@ -64,7 +69,6 @@ with input_container:
         run_user_query(conn=con, chat_id = st.session_state.session_id, message=user_input, prompt_class="prompt_class 1")
         messages = st.session_state['messages']
         messages = update_message(messages=messages, role="user", content=user_input + ". " + post_prompt)
-        print(messages)
         response = get_response(messages=messages)
         messages = update_message(messages=messages, role="assistant", content=response)
         st.session_state.past.append(user_input)
@@ -82,19 +86,19 @@ with response_container:
 end_conversation = st.button("End Conversation")
 
 prompt_link_1 = "https://docs.google.com/forms/d/e/1FAIpQLSejKgCKHPp2Bnt1pgbXh4KZZT8gA3T1WTHIql0n32ROF2Pe7w/viewform"
-prompt_link_2 = "https://docs.google.com/forms/d/e/1FAIpQLScfnIDC9stkHDXjOxkwktyjsy-keBoLIfrpZRZJSTBUaX5zqg/viewform"
-prompt_link_3 = "https://docs.google.com/forms/d/e/1FAIpQLSeOjYWjcooycleK_vOArZOk9L-F_9LoVd1OFSlnA2d9XbjZEw/viewform"
+prompt_link_2 = "https://docs.google.com/forms/d/e/1FAIpQLScnVXtutqGwzmRGYcdnCn1vYFSdmxtKHo4OMjVDbfBGt3qR6g/viewform"
+prompt_link_3 = "https://docs.google.com/forms/d/e/1FAIpQLSd73ALkRdvQ29aMWwgDS3Iq_kCiU81MKBmYnYbfYQd8FG8How/viewform"
 
 
 if end_conversation:
-    print('Gotten here')
-    messages = update_message(messages=messages, role="user", content="Give me a summary of only my chat")
+    session_duration = time.time() - start_time
+    insert_session(conn=con, session_id = st.session_state.session_id, time=session_duration)
+
+    messages = update_message(messages=messages, role="user", content="Give me a summary of the chat")
     response = get_response(messages=messages)
-    print(messages)
     try:
         run_summary_query(conn=con, chat_id = st.session_state.session_id,
                         summary=response)
-        print('gotten here')
     
     except Exception as e:
         print(e)
