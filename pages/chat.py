@@ -102,7 +102,7 @@ if end_conversation:
     
     except Exception as e:
         print(e)
-    st.write('<meta http-equiv="refresh" content="0;url=' + prompt_link_1 + '">', unsafe_allow_html=True)
+    webbrowser.open_new_tab(prompt_link_1)
     switch_page("main")
 
    
