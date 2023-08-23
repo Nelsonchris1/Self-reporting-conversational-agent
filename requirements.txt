@@ -1,9 +1,9 @@
 streamlit==1.24.1
 streamlit_chat
 openai==0.27.8
+streamlit-js-eval
 streamlit_extras
 psycopg2-binary
-shortuuid
+# shortuuid
 watchdog
 python-dotenv
-streamlit-js-eval
