@@ -5,3 +5,5 @@ streamlit_extras
 psycopg2-binary
 shortuuid
 watchdog
+python-dotenv
+streamlit_js_eval

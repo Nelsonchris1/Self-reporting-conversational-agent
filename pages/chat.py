@@ -9,6 +9,11 @@ from util import initial_message, get_response, update_message, database_conn, r
 import shortuuid
 import webbrowser
 import time
+import os
+from streamlit_js_eval import streamlit_js_eval
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
 
 
 
@@ -61,12 +66,22 @@ if "messages" not in st.session_state:
 
 if "session_id" not in st.session_state:
     st.session_state.session_id = shortuuid.uuid()
-    
+
+if os.getenv("ENVIRONMENT"):
+    user_chat_tab = "user_chat_dev"
+    summary_tab = "chat_summary_dev"
+    session_duration_tab = "session_duration_dev"
+else:
+    user_chat_tab = "user_chat"
+    summary_tab = "chat_summary"
+    session_duration_tab = "session_duration"
+
+
 # # ## Applying the user input box
 with input_container:  
     if user_input:
         date = date_time()
-        run_user_query(conn=con, chat_id = st.session_state.session_id, message=user_input, prompt_class="prompt_class 1")
+        run_user_query(conn=con, chat_id = st.session_state.session_id, message=user_input, prompt_class="prompt_class 2", table=user_chat_tab)
         messages = st.session_state['messages']
         messages = update_message(messages=messages, role="user", content=user_input + ". " + post_prompt)
         response = get_response(messages=messages)
@@ -90,19 +105,24 @@ prompt_link_2 = "https://docs.google.com/forms/d/e/1FAIpQLScnVXtutqGwzmRGYcdnCn1
 prompt_link_3 = "https://docs.google.com/forms/d/e/1FAIpQLSd73ALkRdvQ29aMWwgDS3Iq_kCiU81MKBmYnYbfYQd8FG8How/viewform"
 
 
+
 if end_conversation:
     session_duration = time.time() - start_time
-    insert_session(conn=con, session_id = st.session_state.session_id, time=session_duration)
-
-    messages = update_message(messages=messages, role="user", content="Give me a summary of the chat")
-    response = get_response(messages=messages)
+    insert_session(conn=con, session_id = st.session_state.session_id, time=session_duration, table=session_duration_tab)
+    temp_messages = messages.copy()
+    temp_messages = update_message(messages=temp_messages, role="user", content="Give me a summary of the chat")
+    #messages = update_message(messages=messages, role="user", content="Give me a summary of the chat")
+    response = get_response(messages=temp_messages)
     try:
         run_summary_query(conn=con, chat_id = st.session_state.session_id,
-                        summary=response)
+                        summary=response, table=summary_tab)
     
     except Exception as e:
         print(e)
-    webbrowser.open_new_tab(prompt_link_1)
-    switch_page("main")
+    
+    # webbrowser.open_new_tab(prompt_link_1)
+    streamlit_js_eval(js_expressions="parent.window.location.reload()")
+    
+    # switch_page("main")
 
    

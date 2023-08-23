@@ -51,7 +51,7 @@ prompt_class = {
 def initial_message():
     messages = [
         {"role": "system",
-            "content": prompt_class['prompt_class 1']},
+            "content": prompt_class['prompt_class 2']},
             {"role": "user", "content": "Can i talk to you?"},
             {"role": "assistant", "content": "Hi, I am here to to listen to you. Please speak"}
     ]
@@ -78,17 +78,17 @@ def database_conn():
     
 
 
-def run_user_query(conn, chat_id, message, prompt_class):
+def run_user_query(conn, chat_id,message, prompt_class, table="user_chat"):
     with conn.cursor() as cur:
         conn.rollback()
-        cur.execute("INSERT INTO user_chat (chat_id, messages, prompt_class) VALUES (%s, %s, %s)",
+        cur.execute(f"INSERT INTO {table} (chat_id, messages, prompt_class) VALUES (%s, %s, %s)",
                         (chat_id, message, prompt_class))
         conn.commit()
         
-def run_summary_query(conn, chat_id, summary):
+def run_summary_query(conn, chat_id, summary, table="chat_summary"):
     with conn.cursor() as cur:
         conn.rollback()
-        cur.execute("INSERT INTO chat_summary (chat_id, summary) VALUES (%s, %s)",
+        cur.execute(f"INSERT INTO {table} (chat_id, summary) VALUES (%s, %s)",
                         (chat_id, summary))
         conn.commit()
 
@@ -98,9 +98,9 @@ def date_time():
     return formatted_date
 
 
-def insert_session(conn, session_id, time):
+def insert_session(conn, session_id, time, table="session_duration"):
      with conn.cursor() as cur:
         conn.rollback()
-        cur.execute('INSERT INTO session_duration (session_id, "total_time(sec)") VALUES (%s, %s)',
+        cur.execute(f'INSERT INTO {table} (session_id, "total_time(sec)") VALUES (%s, %s)',
                         (session_id, time))
         conn.commit()
