@@ -3,7 +3,7 @@ streamlit_chat
 openai==0.27.8
 streamlit-js-eval
 streamlit_extras
-# psycopg2-binary
-# shortuuid
+psycopg2-binary
+shortuuid
 watchdog
 python-dotenv

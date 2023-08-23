@@ -10,8 +10,9 @@ import shortuuid
 import webbrowser
 import time
 import os
-from streamlit_js_eval import streamlit_js_eval
 from dotenv import load_dotenv, find_dotenv
+from streamlit_js_eval import streamlit_js_eval
+
 
 load_dotenv(find_dotenv())
 
