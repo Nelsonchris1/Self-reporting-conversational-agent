@@ -82,7 +82,7 @@ else:
 with input_container:  
     if user_input:
         date = date_time()
-        run_user_query(conn=con, chat_id = st.session_state.session_id, message=user_input, prompt_class="prompt_class 2", table=user_chat_tab)
+        run_user_query(conn=con, chat_id = st.session_state.session_id, message=user_input, prompt_class="prompt_class 3", table=user_chat_tab)
         messages = st.session_state['messages']
         messages = update_message(messages=messages, role="user", content=user_input + ". " + post_prompt)
         response = get_response(messages=messages)
