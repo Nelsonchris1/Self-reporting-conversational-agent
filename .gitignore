@@ -3,3 +3,5 @@ venv
 .streamlit/secrets.toml
 .env
 test.ipynb
+*.png
+*.xlsx
