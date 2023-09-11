@@ -2,6 +2,5 @@ Initial_doc.txt
 venv
 .streamlit/secrets.toml
 .env
-test.ipynb
 *.png
 *.xlsx
